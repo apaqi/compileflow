@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <bpm code="bpm.ktv.ktvExample" name="ktv example" type="process" description="ktv example">
+    <!--增加原始价格变量-->
+    <var name="originalPrice" description="原始价格" dataType="java.lang.Integer" inOutType="param"/>
     <var name="price" description="支付价格" dataType="java.lang.Integer" inOutType="return"/>
     <var name="totalPrice" description="实付价" dataType="java.lang.Integer" inOutType="inner"/>
     <var name="pList" description="人员" dataType="java.util.List&lt;java.lang.String&gt;" inOutType="param"/>
@@ -43,7 +45,10 @@
             <actionHandle clazz="com.allibaba.compileflow.test.mock.MockJavaClazz" method="calPrice">
                 <var name="p1" description="人数" dataType="java.lang.Integer" contextVarName="pList.size()"
                      defaultValue="" inOutType="param"/>
-                <var name="p2" description="价格" dataType="java.lang.Integer" contextVarName="totalPrice" defaultValue=""
+                <!--价格计算增加原始价格入参-->
+                <var name="p2" description="原始价格" dataType="java.lang.Integer" contextVarName="originalPrice"
+                     defaultValue="" inOutType="param"/>
+                <var name="p3" description="价格" dataType="java.lang.Integer" contextVarName="totalPrice" defaultValue=""
                      inOutType="return"/>
             </actionHandle>
         </action>

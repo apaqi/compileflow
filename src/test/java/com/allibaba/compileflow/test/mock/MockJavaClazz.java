@@ -28,9 +28,16 @@ public class MockJavaClazz {
         }
     }
 
-    public int calPrice(int num) {
-        System.out.println("total price: " + 30 * num);
-        return 30 * num;
+    /**
+     * 价格计算
+     * 说明：增加原始价格参数
+     * @param num
+     * @param originalPrice
+     * @return
+     */
+    public int calPrice(int num, int originalPrice) {
+        System.out.println("total price: " + originalPrice * num);
+        return originalPrice * num;
     }
 
 }

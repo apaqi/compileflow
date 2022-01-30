@@ -36,6 +36,8 @@ public class ProcessEngineTest {
         pList.add("wuxiang");
         pList.add("yusu");
         context.put("pList", pList);
+        //价格计算增加原始价格
+        context.put("originalPrice", 300);
 
         final ProcessEngine processEngine = ProcessEngineFactory.getProcessEngine();
         System.out.println(processEngine.getTestCode(code));
@@ -52,6 +54,7 @@ public class ProcessEngineTest {
         pList.add("wuxiang");
         pList.add("yusu");
         context.put("pList", pList);
+        context.put("originalPrice",100);
 
         final ProcessEngine processEngine = ProcessEngineFactory.getStatelessProcessEngine(FlowModelType.BPMN);
         System.out.println(processEngine.start(code, context));
